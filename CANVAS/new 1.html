@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Canvas Stuff</title>
+	  <script type="text/javascript" src="jquery-1.3.2.min.js"></script> 
+    <script type="text/javascript">
+
+  		var _gaq = _gaq || [];
+  		_gaq.push(['_setAccount', 'UA-30409248-1']);
+  		_gaq.push(['_setDomainName', 'timelessname.com']);
+  		_gaq.push(['_trackPageview']);
+
+  		(function() {
+    		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  		})();
+
+		</script>
+  </head>
+  
+  <body id="body-root" style="text-align: center;"> <!-- Body, holds the stuff and is styled so stuff stays in the center -->
+
+  <canvas id="can" width="640" height="480" style="border: 1px solid black" ></canvas>     <!-- Canvas, yknow like the place where the game actually loads, shows, and plays -->
+  <br>
+  <pre>
+  
+  Space to reset after crash.
+  
+  TODO: Everything...
+  
+  <a href="/">timelessname.com</a>     <!-- Useless link to an empty page -->
+  </pre>
+
+    <script>
+		var left;     // variable for the left movement
+		var right;     // variable for the right movement
+		var faster = false;     // variable that is default to false but is used for a speed/boost later in code
+		
+		var step = 0;
+		var obst = new Array();
+		
+		var locX = 430;
+		var locY = 100;
+		
+		var running = true;
+		
+    // Bunch of stuff to just assign objects and their picture representations  
+		var guy = new Image();
+		var guyLeft = new Image();
+		var guyRight = new Image();
+		var crash = new Image();
+		var rock = new Image();
+		var tree = new Image();
+		var bush = new Image();
+		guy.src = "guy_down.png";
+		guyLeft.src = "guy_left.png";
+		guyRight.src = "guy_right.png";
+		crash.src = "crash.png";
+		rock.src = "rock.png";
+		tree.src = "tree.png";
+	
+    // Function for left( left arrow ) and right( right arrow ) movement along with faster( f ) which brings items up quicker
+		$(window).keydown(function(e){
+			if(e.keyCode == 37){
+				left = true;
+			}
+			else if(e.keyCode == 39){
+				right = true;
+			}
+			else if(e.keyCode == 70){
+				faster = true;
+			}
+		});
+    // Sets character to forward facing position when not moving left or right or faster 
+		$(window).keyup(function(e){
+			if(e.keyCode == 37){
+				left = false;
+			}
+			else if(e.keyCode == 39){
+				right = false;
+			}
+			else if(e.keyCode == 70){
+				faster = false;
+			}
+      // If the player has crashed then upon space being pressed the game is restarted and the character placed again at the original position
+			else if(e.keyCode == 32){
+				if(!running){
+					step = 0;
+					obst = new Array();
+					locX = 430;
+					locY = 100;
+					running = true;
+					runSki();
+				}
+			}
+		});
+
+
+
+		
+		//TODO: wrap edges (no wall)
+
+		function runSki(){
+			if(!running) return;     // If true it skips
+			var canvas = document.getElementById("can");
+			var ctx = canvas.getContext("2d");
+			
+			ctx.fillStyle = "rgb(255,255,255)";     // fills the canvas with white
+			ctx.fillRect (0, 0, canvas.width, canvas.height);
+
+			// allows character to move left if their location is greater than -320
+			if(left){
+				if(locX > -320){
+					locX--;
+				}
+			}
+      // allows character to move right if their location is less than 640+320
+			if(right){
+				if(locX < 640+320){
+					locX++;
+				}
+			}
+			
+			ctx.fillStyle = "rgb(150,0,0)";
+			// creates walls
+			ctx.fillRect (-10-locX, 0, 10, canvas.height);
+			ctx.fillRect (640*2+20-locX, 0, 10, canvas.height);
+			
+
+			for(var i = 0; i < obst.length;i++){
+				var o = obst[i];
+				o.y-=2.5;
+				if(faster){
+					o.y-=2.5;
+				}
+				ctx.drawImage(o.type,o.x-locX,o.y);
+				if(o.y < -30){
+				  obst.splice(i,1);
+				  i--;
+				}
+				
+				var tX = o.x-locX+5;
+				var tY = o.y+5;
+				
+				var d = Math.sqrt((tX-320+3)*(tX-320+3)+ (tY-100+5)*(tY-100+5));
+				if(d < 20){
+					ctx.drawImage(crash,320,locY);
+					running = false;
+				}
+			}
+			if(running){
+			if(left){
+				ctx.drawImage(guyLeft,320,locY);
+			}
+			else if(right){
+				ctx.drawImage(guyRight,320,locY);
+			}
+			else{
+				ctx.drawImage(guy,320,locY);
+			}
+			}
+				
+			var randomnumber=Math.floor(Math.random()*641)
+			if(Math.floor(step*10)%10==0){
+				var type;
+				if(Math.floor(Math.random()*2) == 0){
+				  type = rock;
+				}
+				else{
+				  type = tree;
+				}
+				var obj = {x: Math.floor(Math.random()*641*2), y:480, type: type};
+				obst.push(obj);
+			}
+			step+= 0.1;
+			if(running){
+				setTimeout("runSki();",1); 
+			}
+		}
+		setTimeout("runSki();",1000); 
+    </script>
+    
+  </body>
+  
+</html>

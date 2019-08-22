@@ -1,0 +1,57 @@
+body
+{
+  background-color: #65658F;
+}
+
+canvas
+{
+  background-color: white;
+  border-bottom:2px black solid;
+}
+      
+      input
+          {
+          text-align:center; /* center text on button */
+          width: 200px;
+          display: block; /* inline vs block */
+          margin:5px auto 0px auto; /* t r b l*/   
+          border: 2px blue solid; /* size, color, style */
+          padding: 5px; /* M B P W */
+      }  
+      
+      /* class for the outer div  */
+      .outer
+          {
+           width:848px; /* 424 x 2 */
+           margin:10px auto 10px auto;  /* M B P W  - trbl */ 
+           border: 1px red solid;
+           padding: 10px;  
+           height:520px;
+           background-color:#ffc;
+      }
+         
+      /* class for the inner two divs (L & R) */   
+      .inner
+          {
+           width:400px;    /* total width of everything (mbpw)is 424px */
+           margin:10px;
+           border: 2px black solid;
+           height:500px;
+           float:left;
+      }
+      
+   /* micro classes */
+   .lColor { background-color:#f66; }
+   .rColor { background-color:#999; }
+   .cen      { text-align:center; }
+
+/* Additions */
+.matrix
+{
+  background-color:black;
+  border: hidden;
+  padding: 2px;
+  width: 100%;
+  height: 100%;
+  
+}

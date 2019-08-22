@@ -1,0 +1,126 @@
+/********
+ Default
+********/
+
+/*  
+color pallete  
+http://paletton.com/#uid=53+0u0k7Myj5iVS60NLbbpEcOjp
+*/
+
+body 
+{
+  margin: 0 auto;
+  height: 100%;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: black;
+  background-color: #65658F;
+  overflow:auto;
+  padding: 1%;
+}
+
+/*****
+ HTML
+*****/
+header, footer
+{
+  border: solid black 2px;
+  text-align: center;
+  margin: 1%;
+  padding: 1%;
+}
+div
+{
+	margin: auto;
+	border: hidden 3px;
+	padding: 3px;
+	overflow: auto;
+	background-color: #65658F;
+}
+h3, h4
+{
+  text-align: center;
+}
+a
+{
+	font-style: oblique;
+}
+hr
+{
+  max-width: 90%;
+}
+
+/********
+ CLASSES
+********/
+.center
+{
+  text-align: center;
+}
+.inner
+{
+	margin: auto;
+	width: 50%;
+	border: hidden;
+	box-sizing:border-box;
+	float: left;
+}
+.triple
+{
+  margin: auto;
+  width: 33%;
+  border: hidden;
+  box-sizing: border-box;
+  float: left;
+}
+.clear
+{
+  clear:both;
+}
+.pics
+{
+	width:100%; 
+	max-width: 318px;
+  max-height: 318px;
+	border: solid 2px #47476C;
+}
+.hidden
+{
+  border: hidden;
+}
+.title
+{
+	border-bottom: solid 2px black;
+	overflow: auto;
+	background-color: #65658F;
+}
+.space
+{
+  margin: 10px;
+  border: 1px solid black;
+  background-color: #9292B8;
+}
+
+/****
+ IDS
+****/
+#Fibb
+{
+	
+}
+#FibbBox
+{
+	padding: 2px;
+}
+#Fizz
+{
+	
+}
+#FizzBox
+{
+	padding: 2px;
+}
+#Button
+{
+	
+}

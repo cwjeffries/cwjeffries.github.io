@@ -1,0 +1,105 @@
+/********
+ Default
+********/
+
+/*  
+color pallete  
+http://paletton.com/#uid=53+0u0k7Myj5iVS60NLbbpEcOjp
+*/
+
+body 
+{
+  margin: 0 auto;
+  height: 100%;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: black;
+  background-color: #65658F;
+  overflow:auto;
+}
+
+/*****
+ HTML
+*****/
+header, footer
+{
+  border: solid black 2px;
+  text-align: center;
+  margin: 1%;
+  padding: 1%;
+}
+div
+{
+	margin: 1%;
+	border: ridge 3px black;
+	padding: 10px;
+	overflow: auto;
+	background-color: #9292B8;
+}
+h3, h4
+{
+  text-align: center;
+}
+a
+{
+	font-style: oblique;
+}
+
+/********
+ CLASSES
+********/
+.inner
+{
+	margin: auto;
+	width: 50%;
+	border: hidden;
+	box-sizing:border-box;
+	float: left;
+}
+.triple
+{
+  margin: auto;
+  width: 33%;
+  border: hidden;
+  box-sizing: border-box;
+  float: left;
+}
+.clear
+{
+  clear:both;
+}
+.pics
+{
+	width:100%; 
+	max-width: 318px;
+    max-height: 318px;
+	border: solid 2px #47476C;
+}
+.hidden
+{
+  border: hidden;
+}
+
+/****
+ IDS
+****/
+#header
+{
+	text-align: center;
+	background-color: #9292B8;
+	border: solid #47476C;
+}
+#footer
+{
+  text-align: center;
+  background-color: #9292B8;
+  border: solid #47476C;
+}
+#outer
+{
+	padding: 1%
+}
+#third
+{
+	background-image: url(IMAGES/bird.jpg);
+}
