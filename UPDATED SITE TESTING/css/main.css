@@ -1,0 +1,92 @@
+html
+{
+    background-color: rgb(39, 39, 39);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body
+{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 1.2em;
+    color: #c0c0c0;
+    background-color: #474747;
+    padding: 0;
+    max-width: 90%;
+    height: 100%;
+    margin: auto;
+}
+
+main
+{
+    text-align: center;
+}
+
+header, nav, footer, section, article, div
+{
+    box-sizing: border-box;
+}
+
+img, embed, object, video
+{
+    max-width:100%;
+}
+
+.nav
+{
+    width: 100%;
+    margin: auto;
+    background-color: #e0baba;
+}
+
+/*
+.nav_item
+{
+    display: inline-block;
+    max-width: 100%;
+    text-align: center;
+    line-height: 24px;
+    padding: 24px;
+    text-transform: uppercase;
+}
+*/
+
+.read_text
+{
+    width: 36em;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.projects
+{
+    background-color: #4b3131;
+    border: 1px solid #1f1f1f;
+    margin: 5px auto;
+    flex: 1.2em;
+}
+
+@media screen and (min-width: 700px)
+{
+
+}
+
+.tap
+{
+    padding: 10px;
+}
+
+.footer
+{
+    max-width:100%;
+    padding: 1.2em;
+}
+
+.footer_small
+{
+    font-size: 12px;
+}
